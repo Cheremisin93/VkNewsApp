@@ -11,16 +11,21 @@ import VKSdkFramework
 protocol AuthServiceDelegate: AnyObject {
     func authServiceShouldShow(viewController: UIViewController)
     func authServiceSignIn()
-    func authServiceSignInDidFail()
+    func authServiceDidSignInFail()
 }
 
-class AuthSevice: NSObject, VKSdkDelegate, VKSdkUIDelegate {
+final class AuthSevice: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     private let appid = "8138756"
     private let vkSdk: VKSdk
     
+    weak var delegate: AuthServiceDelegate?
+    
+    var token: String? {
+        return VKSdk.accessToken()?.accessToken
+    }
+    
     override init() {
-        
         vkSdk = VKSdk.initialize(withAppId: appid)
         super.init()
         print("VKSdk.initialize")
@@ -28,20 +33,19 @@ class AuthSevice: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         vkSdk.uiDelegate = self
     }
     
-    weak var delegate: AuthServiceDelegate?
-    
     func wakeUpSession() {
-        let scope = ["wall", "friends"]
+        let scope = ["wall", "friends", "offline", "photos"]
         VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             switch state {
-            case .initialized:
-                print("initialized")
-                VKSdk.authorize(scope)
             case .authorized:
                 print("authorized")
                 delegate?.authServiceSignIn()
-            default:
-                delegate?.authServiceSignInDidFail()
+            case .initialized:
+                print("initialized")
+                VKSdk.authorize(scope)
+            default :
+                print("auth problems, state \(state) error \(String(describing: error))")
+                delegate?.authServiceDidSignInFail()
             }
         }
     }

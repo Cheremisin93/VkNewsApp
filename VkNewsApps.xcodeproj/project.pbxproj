@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF5621CF280B44DC00F46370 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5621CE280B44DC00F46370 /* NetworkService.swift */; };
+		EF5621D1280B46D200F46370 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5621D0280B46D200F46370 /* API.swift */; };
+		EF5621D4280BFD7C00F46370 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5621D3280BFD7C00F46370 /* FeedResponse.swift */; };
+		EF5621DA280C54EF00F46370 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5621D9280C54EF00F46370 /* NetworkDataFetcher.swift */; };
 		EF936A03280AC2B400CADBA4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF936A02280AC2B400CADBA4 /* AuthService.swift */; };
 		EF936A06280AC4E600CADBA4 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF936A05280AC4E600CADBA4 /* AuthViewController.storyboard */; };
 		EF966510280B301000C9F245 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF96650F280B301000C9F245 /* FeedViewController.storyboard */; };
@@ -35,6 +39,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF5621CE280B44DC00F46370 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EF5621D0280B46D200F46370 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EF5621D3280BFD7C00F46370 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		EF5621D9280C54EF00F46370 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		EF936A02280AC2B400CADBA4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EF936A05280AC4E600CADBA4 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		EF96650F280B301000C9F245 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
@@ -61,10 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF5621D2280BFD6500F46370 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF5621D3280BFD7C00F46370 /* FeedResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EF936A04280AC2BA00CADBA4 /* Servecis */ = {
 			isa = PBXGroup;
 			children = (
+				EF5621D2280BFD6500F46370 /* Models */,
 				EF936A02280AC2B400CADBA4 /* AuthService.swift */,
+				EF5621D0280B46D200F46370 /* API.swift */,
+				EF5621CE280B44DC00F46370 /* NetworkService.swift */,
+				EF5621D9280C54EF00F46370 /* NetworkDataFetcher.swift */,
 			);
 			path = Servecis;
 			sourceTree = "<group>";
@@ -205,6 +225,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -221,11 +242,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5621D4280BFD7C00F46370 /* FeedResponse.swift in Sources */,
 				EFA97E6E280AAC560059D4C6 /* AuthViewController.swift in Sources */,
 				EFA97E6A280AAC560059D4C6 /* AppDelegate.swift in Sources */,
 				EF966512280B301700C9F245 /* FeedViewController.swift in Sources */,
 				EFA97E6C280AAC560059D4C6 /* SceneDelegate.swift in Sources */,
+				EF5621CF280B44DC00F46370 /* NetworkService.swift in Sources */,
+				EF5621DA280C54EF00F46370 /* NetworkDataFetcher.swift in Sources */,
 				EF936A03280AC2B400CADBA4 /* AuthService.swift in Sources */,
+				EF5621D1280B46D200F46370 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -81,7 +81,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         window?.rootViewController = navVC
     }
     
-    func authServiceSignInDidFail() {
+    func authServiceDidSignInFail() {
         print(#function)
     }
     
